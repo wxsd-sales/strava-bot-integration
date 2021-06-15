@@ -6,7 +6,7 @@ const Distance = ({ e, returnTokens }) => {
     console.log("-------- Activity here --------");
     console.log(activity);
 
-    const imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:' + activity.map.summary_polyline + '&key=AIzaSyB7zHW8oTnccu56JNs3Fw_cK9rDC8wFWQY';
+    const imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:' + activity.map.summary_polyline + '&key=<INSERT_YOUR_KEY>';
     return (
         <div>
             <h3>Activity name: {activity.name}</h3>
