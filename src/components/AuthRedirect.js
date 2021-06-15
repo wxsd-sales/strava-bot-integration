@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getAuthToken, testAuthGetter, getUserData } from '../components/Functions';
 import _ from "lodash";
-import { Route } from 'react-router-dom'
 
 
 class AuthRedirect extends Component {
@@ -14,8 +13,6 @@ class AuthRedirect extends Component {
                     console.log("is empty executed")
                     return history.push("/");
                 }
-
-
                 // Save the Auth Token to the Store
                 const stravaAuthToken = getAuthToken(window.location.search);
                 console.log("auth token ---> " + stravaAuthToken);
