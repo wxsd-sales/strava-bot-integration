@@ -1,4 +1,6 @@
 import React from "react";
+import "../App.css";
+import Navbar from "./Navbar.js";
 
 const Distance = ({ e, returnTokens }) => {
 
@@ -6,18 +8,26 @@ const Distance = ({ e, returnTokens }) => {
     console.log("-------- Activity here --------");
     console.log(activity);
 
-    const imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:' + activity.map.summary_polyline + '&key=<INSERT_YOUR_KEY>';
+    const imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:' + activity.map.summary_polyline + '&key=AIzaSyB7zHW8oTnccu56JNs3Fw_cK9rDC8wFWQY';
     return (
         <div>
-            <h3>Activity name: {activity.name}</h3>
-            <h3>Distance: {activity.distance}</h3>
-            {/* <h2>{user.data.all_run_totals.distance}</h2>
-            <h2>{user.data.all_ride_totals.distance}</h2>
-            <h2>{user.data.all_swim_totals.distance}</h2> */}
-            <p>Polyline Map of the route</p>
-            <img src={imgUrl}></img>
-
+            <Navbar />
+            <h3 className="title">Activity details</h3>
+            <div className="card card-size">
+                <img src={imgUrl} className="card-img-top" alt="polyline-map" />
+                <div className="card-body">
+                    <h5 className="card-title"><b>Activity map</b></h5>
+                    <p className="card-text">A polyline route of the activity.</p>
+                </div>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item"><b>Activity name: </b>{activity.name}</li>
+                    <li className="list-group-item"><b>Activity type: </b>{activity.type}</li>
+                    <li className="list-group-item"><b>Distance: </b>{activity.distance}</li>
+                    <li className="list-group-item"><b>Moving Time: </b>{activity.moving_time} seconds</li>
+                </ul>
+            </div>
         </div>
+
     );
 };
 

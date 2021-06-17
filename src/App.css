@@ -37,8 +37,17 @@
   }
 }
 
-.strava-button {
-  background-color: orange;
-  font-size: 25px;
+.strava-btn {
   margin-top: 5%;
 }
+
+.card-size {
+  width: 40rem;
+  margin: 3em auto 3em;
+}
+
+.title {
+  text-align: center;
+  margin-top: 1em;
+}
+

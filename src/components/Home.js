@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from "./Navbar.js"
 
 require('dotenv').config();
 //const { REACT_APP_CLIENT_ID } = process.env;
@@ -13,8 +14,8 @@ export default class Home extends Component {
     render(){
         return (
             <div className="App">
-                <h4>Welcome!!</h4>
-                <button className="strava-button" onClick={authorize}>STRAVA</button>
+                <Navbar />
+                <button className="btn btn-warning strava-btn" onClick={authorize}>STRAVA</button>
             </div>
           );
     }
