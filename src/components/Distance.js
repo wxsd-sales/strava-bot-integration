@@ -7,9 +7,8 @@ const Distance = ({ e, returnTokens }) => {
     const activity = JSON.parse(localStorage.getItem("rememberMe"))["data"];
     console.log("-------- Activity here --------");
     console.log(activity);
-    const imgUrl = '';
-    // {activity.map((info, index) => )}
-    let imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:' + info.map.summary_polyline + '&key=<API_KEY>';
+    let imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:';
+
     return (
         <div>
             <Navbar />
@@ -17,7 +16,7 @@ const Distance = ({ e, returnTokens }) => {
             {activity.map((info, index) => 
                 <div>
                     <div className="card card-size">
-                        <img src={imgUrl} className="card-img-top" alt="polyline-map" />
+                        <img src={imgUrl + info.map.summary_polyline + mapKey} className="card-img-top" alt="polyline-map" />
                         <div className="card-body">
                             <h5 className="card-title"><b>Activity map</b></h5>
                             <p className="card-text">A polyline route of the activity.</p>
