@@ -30,7 +30,7 @@ export const getUserData = async (userID, accessToken) => {
     try {
         const response = await axios.get(
             // `https://www.strava.com/api/v3/athletes/${userID}/stats`,
-            `https://www.strava.com/api/v3/activities?before=1622686544&after=1622513744&access_token=${accessToken}`,
+            `https://www.strava.com/api/v3/activities?before=1624110044&after=1622554844&access_token=${accessToken}`,
             { headers: { Authorization: `Bearer ${accessToken}` } }
         );
         // console.log(response);
