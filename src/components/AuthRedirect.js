@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getAuthToken, testAuthGetter, getUserData } from '../components/Functions';
 import _ from "lodash";
+import {Button, Spinner} from 'react-bootstrap';
+import '../App.css';
 
 
 class AuthRedirect extends Component {
@@ -43,7 +45,18 @@ class AuthRedirect extends Component {
 
     render() {
         return(
-            <div>Loading..</div>
+            <div>
+                <Button variant="warning" className="spinner-loading" disabled>
+                    <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    />
+                        Loading...
+                </Button>
+            </div>
         );
     }
 };
