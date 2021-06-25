@@ -1,9 +1,11 @@
 import express from 'express';
-//import ClubDetails from '../models/ClubDetails';
+import ClubDetails from '../models/ClubDetails.js';
 const ClubRouter = express.Router();
 
 ClubRouter
     .get('/', (req,res) => {
-        res.json(docs) 
+        ClubDetails.find({}).exec(function(err, docs) { 
+            res.json(docs)
+        });
     })
 export default ClubRouter;

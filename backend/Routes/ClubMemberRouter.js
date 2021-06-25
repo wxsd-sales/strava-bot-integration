@@ -1,10 +1,11 @@
 import express from 'express';
-//import ClubMemberDetails from '../models/ClubMemberDetails';
+import ClubMemberDetails from '../models/ClubMemberDetails.js';
 const ClubMemberRouter = express.Router();
 
 ClubMemberRouter
     .get('/', (req,res) => {
-        console.log("*****************CLUB MEMBER ROUTER " + docs);
-        res.json(docs) 
+        ClubMemberDetails.find({}).exec(function(err, docs) { 
+            res.json(docs)
+        }); 
     })
 export default ClubMemberRouter;

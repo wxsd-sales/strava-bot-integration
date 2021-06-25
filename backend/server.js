@@ -8,6 +8,8 @@ import ClubRouter from './Routes/ClubRouter.js';
 import ClubDetails from './models/ClubDetails.js';
 import ClubMemberRouter from './Routes/ClubMemberRouter.js';
 import ClubMemberDetails from './models/ClubMemberDetails.js';
+import ClubActivityDetails from './models/ClubActivity.js';
+import ClubActivityRouter from './Routes/ClubActivityRouter.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -19,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/activities', ActivityRouter);
 app.use('/api/club-details', ClubRouter);
 app.use('/api/club-member-details', ClubMemberRouter);
+app.use('/api/club-activity-details', ClubActivityRouter);
 
 
 app.listen(port, () => {
@@ -37,7 +40,7 @@ mongoose.connect(uri, {
 
 //Get the activity details of the user
 
-axios.get('https://www.strava.com/api/v3/activities?access_token=a808db4d51f2248835c31241f608c9aa139ffd38')
+axios.get('https://www.strava.com/api/v3/activities?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
   .then(function (response) {
     onSuccess(response)
   })
@@ -48,7 +51,7 @@ axios.get('https://www.strava.com/api/v3/activities?access_token=a808db4d51f2248
 function onSuccess(response) {
     var array = response;
     var arrayLength = Object.keys(array.data).length 
-    console.log("Activity Array length: " + arrayLength)
+   // console.log("Activity Array length: " + arrayLength)
     
     for(var i = 0; i < arrayLength; i++) {
 
@@ -75,7 +78,7 @@ function onSuccess(response) {
 
 // Club Member Details
 
-axios.get('https://www.strava.com/api/v3/clubs/950919/members?access_token=a808db4d51f2248835c31241f608c9aa139ffd38')
+axios.get('https://www.strava.com/api/v3/clubs/950919/members?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
   .then(function (response) {
     onClubMemberSuccess(response)
   })
@@ -87,12 +90,15 @@ axios.get('https://www.strava.com/api/v3/clubs/950919/members?access_token=a808d
 function onClubMemberSuccess(response) {
     var array = response;
     var arrayLength = Object.keys(array.data).length 
+    //console.log(array.data)
     console.log("Club Member Details: " + arrayLength)
     for(var i = 0; i < arrayLength; i++) {
 
       var clubMemberData = new ClubMemberDetails()
+
       clubMemberData.firstname = array.data[i].firstname;
       clubMemberData.lastname = array.data[i].lastname;
+      clubMemberData.name = array.data[i].firstname + " " + array.data[i].lastname;
       clubMemberData.membership = array.data[i].membership;
       clubMemberData.admin = array.data[i].admin;
       clubMemberData.owner = array.data[i].owner;
@@ -103,7 +109,7 @@ function onClubMemberSuccess(response) {
 
 //Club Details
 
-axios.get('https://www.strava.com/api/v3/athlete/clubs?access_token=a808db4d51f2248835c31241f608c9aa139ffd38')
+axios.get('https://www.strava.com/api/v3/athlete/clubs?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
   .then(function (response) {
     onClubSuccess(response)
   })
@@ -126,48 +132,40 @@ function onClubSuccess(response) {
     clubData.city = array.data[i].city;
     clubData.state = array.data[i].state;
     clubData.verified = array.data[i].verified;
-    console.log(clubData)
-    clubData.save();
+    //console.log(clubData)
+    //clubData.save();
   }
 }
 
 
-//Club Member Details
+//Club Member Activity Details
 
-axios.get('https://www.strava.com/api/v3/clubs/950919/activities?access_token=a808db4d51f2248835c31241f608c9aa139ffd38')
+axios.get('https://www.strava.com/api/v3/clubs/950919/activities?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
   .then(function (response) {
-    onClubMemberSuccess(response)
+    onClubMemberActivitySuccess(response)
   })
   .catch(function (error) {
     console.log(error);
   });
 
-  name: String,
-  firstname: String,
-  lastname: String,
-  distance: Number,
-  moving_time: Number,
-  elapsed_time: Number,
-  total_elevation_gain: Number,
-  type: String
 
-
-function onClubMemberSuccess(response) {
+function onClubMemberActivitySuccess(response) {
   var array = response;
   var arrayLength = Object.keys(array.data).length 
-  console.log("Club Member Details: " + arrayLength)
+  console.log("Club Member Activity Details: " + arrayLength)
+  console.log(array.data)
  for(var i = 0; i < arrayLength; i++) {
-    var clubMemberData = new ClubMemberDetails()
-    clubMemberData.name = array.data[i].name;
-    clubMemberData.firstname = array.data[i].athlete.firstname;
-    clubMemberData.lastname = array.data[i].athlete.lastname;
-    clubMemberData.distance = array.data[i].distance;
-    clubMemberData.moving_time = array.data[i].moving_time;
-    clubMemberData.elapsed_time = array.data[i].elapsed_time;
-    clubMemberData.total_elevation_gain = array.data[i].total_elevation_gain;
-    clubMemberData.type = array.data[i].type;
+    var clubMemberActivityData = new ClubActivityDetails()
+    clubMemberActivityData.name = array.data[i].name;
+    clubMemberActivityData.firstname = array.data[i].athlete.firstname;
+    clubMemberActivityData.lastname = array.data[i].athlete.lastname;
+    clubMemberActivityData.distance = array.data[i].distance;
+    clubMemberActivityData.moving_time = array.data[i].moving_time;
+    clubMemberActivityData.elapsed_time = array.data[i].elapsed_time;
+    clubMemberActivityData.total_elevation_gain = array.data[i].total_elevation_gain;
+    clubMemberActivityData.type = array.data[i].type;
 
-    console.log(clubMemberData)
-    //clubMemberData.save();
+    //console.log(clubMemberActivityData)
+    //clubMemberActivityData.save();
   }
 }
