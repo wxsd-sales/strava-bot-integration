@@ -18,7 +18,7 @@ export const getAuthToken = (str) => {
 export const testAuthGetter = async (authTok) => {
     try {
         const response = await axios.post(
-            `https://www.strava.com/api/v3/oauth/token?client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&code=${authTok}&grant_type=authorization_code`
+            `https://www.strava.com/api/v3/oauth/token?client_id=66644&client_secret=bf46e0664b746a64dcf75c118b06016bc8596200&code=${authTok}&grant_type=authorization_code`
         );
         return response.data;
     } catch (error) {
