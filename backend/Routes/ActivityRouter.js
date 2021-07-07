@@ -4,7 +4,7 @@ const ActivityRouter = express.Router();
 
 ActivityRouter
     .get('/', (req,res) => {
-        ActivityDetails.find({}).sort({distance: 1}).exec(function(err, docs) { 
+        ActivityDetails.find({}).sort({distance: -1}).exec(function(err, docs) { 
             res.json(docs)
         });
     })

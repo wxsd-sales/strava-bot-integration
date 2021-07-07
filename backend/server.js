@@ -38,9 +38,11 @@ mongoose.connect(uri, {
 }).catch(err => console.log(err))
 
 
+var accessToken = 'f7bcc9405329d6a94af801da469afff55eef5781';
+
 //Get the activity details of the user
 
-axios.get('https://www.strava.com/api/v3/activities?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
+axios.get(`https://www.strava.com/api/v3/activities?access_token=${accessToken}`)
   .then(function (response) {
     onSuccess(response)
   })
@@ -78,7 +80,7 @@ function onSuccess(response) {
 
 // Club Member Details
 
-axios.get('https://www.strava.com/api/v3/clubs/950919/members?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
+axios.get(`https://www.strava.com/api/v3/clubs/950919/members?access_token=${accessToken}`)
   .then(function (response) {
     onClubMemberSuccess(response)
   })
@@ -109,7 +111,7 @@ function onClubMemberSuccess(response) {
 
 //Club Details
 
-axios.get('https://www.strava.com/api/v3/athlete/clubs?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
+axios.get(`https://www.strava.com/api/v3/athlete/clubs?access_token=${accessToken}`)
   .then(function (response) {
     onClubSuccess(response)
   })
@@ -133,14 +135,14 @@ function onClubSuccess(response) {
     clubData.state = array.data[i].state;
     clubData.verified = array.data[i].verified;
     //console.log(clubData)
-    //clubData.save();
+    clubData.save();
   }
 }
 
 
 //Club Member Activity Details
 
-axios.get('https://www.strava.com/api/v3/clubs/950919/activities?access_token=60a8cb13839b545fee9e23fe00be7ece0e64f69f')
+axios.get(`https://www.strava.com/api/v3/clubs/950919/activities?access_token=${accessToken}`)
   .then(function (response) {
     onClubMemberActivitySuccess(response)
   })
@@ -166,6 +168,6 @@ function onClubMemberActivitySuccess(response) {
     clubMemberActivityData.type = array.data[i].type;
 
     //console.log(clubMemberActivityData)
-    //clubMemberActivityData.save();
+    clubMemberActivityData.save();
   }
 }

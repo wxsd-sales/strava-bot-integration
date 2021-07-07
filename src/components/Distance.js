@@ -8,7 +8,7 @@ const Distance = ({ e, returnTokens }) => {
     console.log("-------- Activity here --------");
     console.log(activity);
     let imgUrl = 'https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&path=enc:';
-    let mapKey = '';
+    let mapKey = '&key=AIzaSyB7zHW8oTnccu56JNs3Fw_cK9rDC8wFWQY';
     return (
         <div>
             <Navbar />

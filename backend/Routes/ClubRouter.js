@@ -5,6 +5,7 @@ const ClubRouter = express.Router();
 ClubRouter
     .get('/', (req,res) => {
         ClubDetails.find({}).exec(function(err, docs) { 
+            console.log("Hello world")
             res.json(docs)
         });
     })
