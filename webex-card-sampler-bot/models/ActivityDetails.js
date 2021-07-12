@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+var mongoose = require('mongoose');
 
 var repSchema = mongoose.Schema({
     activity_id: {
         type: Number,
-        //unique: true,
-        //index: true,
+        unique: true,
+        index: true,
         required: true
       },
       name: String,
@@ -24,7 +24,9 @@ var repSchema = mongoose.Schema({
 });
 var ActivityDetails = mongoose.model('Activity_Details', repSchema);
 
-export default ActivityDetails;
+//export default ActivityDetails;
+
+module.exports = ActivityDetails;
 
 
 

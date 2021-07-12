@@ -38,7 +38,7 @@ mongoose.connect(uri, {
 }).catch(err => console.log(err))
 
 
-var accessToken = 'f7bcc9405329d6a94af801da469afff55eef5781';
+var accessToken = 'ea509fee08ec617e5f8ee0660db1f2e3d3662f5b';
 
 //Get the activity details of the user
 
@@ -152,6 +152,7 @@ axios.get(`https://www.strava.com/api/v3/clubs/950919/activities?access_token=${
 
 
 function onClubMemberActivitySuccess(response) {
+  
   var array = response;
   var arrayLength = Object.keys(array.data).length 
   console.log("Club Member Activity Details: " + arrayLength)
@@ -168,6 +169,17 @@ function onClubMemberActivitySuccess(response) {
     clubMemberActivityData.type = array.data[i].type;
 
     //console.log(clubMemberActivityData)
-    clubMemberActivityData.save();
+    const user = ClubActivityDetails.find({
+      name: clubMemberActivityData.name, 
+      firstname: clubMemberActivityData.firstname,
+      lastname: clubMemberActivityData.lastname,
+      distance: clubMemberActivityData.distance,
+      moving_time: clubMemberActivityData.moving_time,
+      elapsed_time: clubMemberActivityData.elapsed_time,
+      total_elevation_gain: clubMemberActivityData.total_elevation_gain
+    });
+    if(!user){
+      clubMemberActivityData.save();
+    }
   }
 }
