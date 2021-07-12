@@ -20,7 +20,7 @@ require('dotenv').config();
 
 
 //mongodb connection
-const uri = 'mongodb+srv://stravabot:gxy76UPB480YfX37@wxsdsmall.p9xng.mongodb.net/stravaDev?retryWrites=true&w=majority';
+const uri = '';
 var mongoose = require('mongoose');
 mongoose.connect(uri, {
   useNewUrlParser: true,
