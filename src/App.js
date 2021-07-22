@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "../src/components/Home";
-import AuthRedirect from "../src/components/AuthRedirect";
-import Distance from "../src/components/Distance";
+import Home from "./Components/Home";
+import AuthRedirect from "./Components/AuthRedirect";
+import Welcome from "./Components/Welcome";
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/redirect" component={AuthRedirect} />
-            <Route path="/yourdistance" component={Distance} />
+            <Route path="/welcome-page" component={Welcome} />
           </Switch>
         </div>
       </BrowserRouter>
