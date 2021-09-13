@@ -1,0 +1,92 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.2",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "You're almost there!!🚴🏼💨",
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Are you an authorised user?",
+      "wrap": true,
+      "height": "stretch",
+      "fontType": "Default"
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.OpenUrl",
+          "title": "Authorise here 📱",
+          "url": "https://wxstrava-fe.glitch.me/"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Whose activity do you want to list?",
+      "wrap": true,
+      "separator": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Find my friend 📍",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Choose one of your friends 👫🏼",
+            "size": "Medium",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "If you are an iPhone user, please select your friend and click ' ＞ '",
+            "size": "Small",
+            "wrap": true
+          },
+          {
+            "type": "Input.ChoiceSet",
+            "id": "friend",
+            "choices": [
+              {
+                "title": "Adam",
+                "value": "adam"
+              },
+              {
+                "title": "Bob",
+                "value": "bob"
+              },
+              {
+                "title": "Catlin",
+                "value": "catlin"
+              }
+            ],
+            "placeholder": "Select your friend",
+            "errorMessage": "Oops! Scroll through the list, choose your friend and click ' > '",
+            "value": "Please select your friend",
+            "wrap": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "OK",
+            "data": {
+              "cardType": "showStats",
+              "FriendChoice": ""
+            }
+          }
+        ],
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+      }
+    }
+  ]
+}
