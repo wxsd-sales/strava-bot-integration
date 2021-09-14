@@ -14,6 +14,12 @@ This project is an integration of Webex and Strava. Strava is a fitness applicat
 **4.** Every data received through webhook is stored as user activity data inside the Mongo database. \
 **5.** When someone interacts with the bot inside webex, the data is pulled from the database and displayed as an adaptive card.
 
+## Built with
+
+* ReactJS
+* NodeJS
+* Express
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
