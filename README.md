@@ -6,3 +6,4 @@ This project is an integration of Webex and Strava. Strava is a fitness applicat
 
 ## Flow Diagram
 
+![Strava Architecture](https://user-images..githubusercontent.com/19175490/122417774-bcb4c500-cf57-11eb-9d9f-4df24cbdbecc.jpg)
