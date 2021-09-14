@@ -20,6 +20,22 @@ This project is an integration of Webex and Strava. Strava is a fitness applicat
 * NodeJS
 * Express
 
+## How to run
+
+**1.** Clone the project
+```
+git clone <repo>
+```
+**2.** Install necessary packages
+```
+npm install
+```
+**3.** Run the server
+```
+node index.js
+```
+
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
