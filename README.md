@@ -20,11 +20,17 @@ This project is an integration of Webex and Strava. Strava is a fitness applicat
 * NodeJS
 * Express
 
+## Prerequisites
+
+* Update the client id and client secret with respect to your application in Strava
+* Create a bot and get the bot's token from https://developer.webex.com
+* Update port (eg: 3000)
+
 ## How to run
 
 **1.** Clone the project
 ```
-git clone <repo>
+git clone https://github.com/WXSD-Sales/strava-react.git
 ```
 **2.** Install necessary packages
 ```
@@ -32,7 +38,7 @@ npm install
 ```
 **3.** Run the server
 ```
-node index.js
+node server.js
 ```
 
 
