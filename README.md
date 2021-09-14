@@ -32,11 +32,21 @@ This project is an integration of Webex and Strava. Strava is a fitness applicat
 ```
 git clone https://github.com/WXSD-Sales/strava-react.git
 ```
+
 **2.** Install necessary packages
 ```
 npm install
 ```
-**3.** Run the server
+### Frontend
+
+**3.** Start your react app to login
+```
+npm start
+```
+
+### Backend
+
+**4.** Run the server
 ```
 node server.js
 ```
